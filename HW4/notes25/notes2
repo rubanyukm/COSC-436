@@ -1,0 +1,29 @@
+
+start.html - welcome message
+           - form has text box for credits
+           - calls status.php
+
+status.php - done before <html>
+           - get credits from GET array
+           - set credits cookie
+
+           - done in <html>
+           - form has radio buttons for status
+           - calls state.php
+
+state.php - done before <html>
+          - get status from GET array
+          - set status cookie
+
+          - done in <html>
+          - form has radio buttons for state
+          - calls calculate.php
+
+calculate.php - get credits from cookie
+              - get status from cookie
+              - get state from GET array
+ 
+              - compute cost
+              - display inputs and cost
+              - button link to start.html
+              - <a href="start.html"><button>Start over</button></a>

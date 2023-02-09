@@ -1,0 +1,85 @@
+
+database - db6
+
+table - exam(question, answer1, answer2, answer3, answer3, correct)
+      - students(name, code, seen, complete, score)
+      - password(pwd)
+
+command line - fill exam
+             - fill students
+             - fill password
+
+exam.html - form has text box, submit
+          - calls exam.php
+
+exam.php - done before <html>
+         - get user code from GET array
+         - select all rows from students
+         - search for user code
+         - if found and not seen and not completed exam then start session
+
+         - done in <html>
+         - user not found, say invalid passcode
+         - user found, already seen or completed exam, say already completed
+
+         - form has questions, radio groups, text box, submit
+         - form must be created dynamically
+
+         - select all rows from exam
+         - put questions in form
+         - answers are in radio group
+         - radio group of each question must have a name, create it dynamically
+
+         - submit button, no text box
+
+         - save passcode in SESSION array
+         - find start time and save in SESSION array
+         - compute exam duration and save in SESSION array
+         - use time() and use seconds
+
+         - display exam start time, use date()
+         - display how many minutes are allowed
+
+         - mark user as seen exam in students
+
+         - calls grade.php
+
+grade.php - done before <html>
+          - start session
+
+          - done in <html>
+          - get user code from SESSION array
+          - get start time from SESSION array
+          - get duration from SESSION array
+
+          - select all rows from students
+          - search for user code
+          - already completed exam, say already completed
+      
+          - find current time
+          - time taken by the user exceeds duration
+          - say time exceeded, say score 0
+          - update score and comleted in students
+
+          - initialize count to 0
+          - select all rows of exam
+          - go thru each row
+          - look at the correponding radio group in the GET array
+          - compare value from GET and correct answer
+          - if match increment count
+           
+          - update score of user in students using count
+          - mark user has completed exam in students
+
+results.html - form has text box, submit
+             - calls results.php
+
+results.php - get user's pwd from GET array
+            - retrieve pwd from password
+            - check with user's pwd
+            - no match, say invalid pwd
+ 
+            - select all rows from students
+            - go thru each row
+            - print name, code, exam taken status, score
+            - print in table format

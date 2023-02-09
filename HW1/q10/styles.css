@@ -1,0 +1,31 @@
+* {
+    color:black;
+    font-size: 20px;
+}
+
+div {
+    max-width: 1000px;
+    text-align: center;
+    margin-left:500px;
+    margin-right: auto;
+    display: inline-block;
+    justify-content: center;
+    border: 3px solid black;
+}
+
+img {
+    float: left;    
+    margin: 0 15px 0 0;
+    opacity: 0.5;
+
+}
+
+img:hover {
+    opacity: 1;
+    transition-duration: 2s;
+}
+
+h1 {
+    font-size: 50px;
+    text-align: center;
+}

@@ -1,0 +1,32 @@
+
+input {
+    background-color: coral;
+}
+
+form {
+    background-color: #fff;
+    border-radius: 30px;
+    box-shadow: 1 1px 1px rgba(0, 0, 0, 0.075) inset;
+    margin-left: 100px;
+    margin-right: 100px;
+    margin-top: 50px;
+    padding: 50px;
+    text-align: center;
+}
+
+label {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+button {
+    text-align: center;
+    font-size: 1.2em;
+}
+
+span {
+    font-size: 1.2em;
+    font-family: 'Courier New', Courier, monospace;
+}

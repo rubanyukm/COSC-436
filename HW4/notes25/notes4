@@ -1,0 +1,77 @@
+
+database - db7
+
+table - users(id, password, name, email, visits, last)
+
+login.html - form has two text boxes, submit
+           - calls login.php
+           - button link to register.html
+
+register.html - form has four text boxes, submit
+              - calls register.php
+
+register.php - get id, password, name, email from GET array
+           
+             - check id exists in users
+             - exists, say invalid id
+
+             - insert id, password, name, email, visits, last into users
+             - use appropriate visits and last
+             - display confirmation
+             - button link to login.html
+
+login.php - done before <html>
+          - get id and password from GET array
+          - check id and password are valid
+          - if valid then start session and store id in SESSION array
+
+          - done in <html>
+
+          - if not valid say invalid id/password
+
+          - get name from users using id
+          - display welcome message with name
+
+          - home, profile, logout buttons
+          - button links to home.php, profile.php, logout.php
+
+home.php - done before <html>
+         - start session
+
+         - done in <html>
+
+         - get id from SESSION array
+         - get name from users using id
+         - display welcome message with name
+
+         - home, profile, logout buttons
+         - button links to home.php, profile.php, logout.php
+
+profile.php - done before <html>
+            - start session
+
+            - done in <html>
+
+            - get id from SESSION array
+            - get name, email, visits, last from users using id
+            - display name, email, visits, last
+
+            - home, profile, logout buttons
+            - button links to home.php, profile.php, logout.php
+
+logout.php - done before <html>
+           - start session
+
+           - done in <html>
+
+           - get id from SESSION array
+           - get current time/day and insert into users
+           - increment number of visits in users
+
+           - destroy session
+
+           - create login page
+           - form with two text boxes, submit
+           - calls login.php
+           - button link to register.html
+

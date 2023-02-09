@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Question 5</title>
+    </head>
+    <style type="text/css">
+        pre {
+            font-size: 20px;
+            font-family: monospace;
+            color: white;
+            background-color: black;
+        }
+
+        * {
+            background-color: lightgray;
+        }
+
+        .intro {
+            max-width: 1000px;
+        }
+    </style>
+    <body>
+        <h1>Java Algorithms Code</h1>
+        <p class="intro" style="font-size: 20px;">This page contains the Java source code for 5 different sorting algorithms namely: bubble sort, selection sort, insertion sort, 
+            merge sort, and quick sort algorithms.You can click on the names of the algorithms in the table of contents below to jump to the specific section containing the source code for the algorithm.</p>
+
+        <div id="table-contents">
+        <h2><u>Table of Contents</u></h2>
+        <ul>
+            <li><a href="#bubble-sort">Bubble Sort</a></li>
+            <li><a href="#selection-sort">Selection Sort</a></li>
+            <li><a href="#insertion-sort">Insertion Sort</a></li>
+            <li><a href="#merge-sort">Merge Sort</a></li>
+            <li><a href="#quick-sort">Quick Sort</a></li>
+        </ul>
+        </div>
+
+        <div id="bubble-sort">
+            <h2><u>Bubble Sort Algorithm</u></h2>
+            <a href="#table-contents">Back</a>
+            <pre>// Java program for implementation of Bubble Sort
+class BubbleSort {
+    void bubbleSort(int arr[])
+    {
+        int n = arr.length;
+        for (int i = 0; i &lt; n - 1; i++)
+            for (int j = 0; j &lt; n - i - 1; j++)
+                if (arr[j] &gt; arr[j + 1]) {
+                    // swap arr[j+1] and arr[j]
+                    int temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                }
+    }
+    
+    /* Prints the array */
+    void printArray(int arr[])
+    {
+        int n = arr.length;
+        for (int i = 0; i &lt; n; ++i)
+            System.out.print(arr[i] + " ");
+        System.out.println();
+    }
+    
+    // Driver method to test above
+    public static void main(String args[])
+    {
+        BubbleSort ob = new BubbleSort();
+        int arr[] = { 64, 34, 25, 12, 22, 11, 90 };
+        ob.bubbleSort(arr);
+        System.out.println("Sorted array");
+        ob.printArray(arr);
+    }
+}             
+            </pre>
+        </div>
+
+        <div id="selection-sort">
+            <h2><u>Selection Sort Algorithm</u></h2>
+            <a href="#table-contents">Back</a>
+            <pre>
+// Java program for implementation of Selection Sort
+class SelectionSort
+{
+    void sort(int arr[])
+    {
+        int n = arr.length;
+    
+        // One by one move boundary of unsorted subarray
+        for (int i = 0; i &lt; n-1; i++)
+        {
+            // Find the minimum element in unsorted array
+            int min_idx = i;
+            for (int j = i+1; j &lt; n; j++)
+                if (arr[j] &lt; arr[min_idx])
+                    min_idx = j;
+    
+            // Swap the found minimum element with the first
+            // element
+            int temp = arr[min_idx];
+            arr[min_idx] = arr[i];
+            arr[i] = temp;
+        }
+    }
+    
+    // Prints the array
+    void printArray(int arr[])
+    {
+        int n = arr.length;
+        for (int i=0; i&lt;n; ++i)
+            System.out.print(arr[i]+" ");
+        System.out.println();
+    }
+    
+    // Driver code to test above
+    public static void main(String args[])
+    {
+        SelectionSort ob = new SelectionSort();
+        int arr[] = {64,25,12,22,11};
+        ob.sort(arr);
+        System.out.println("Sorted array");
+        ob.printArray(arr);
+    }
+}
+            </pre>
+        </div>
+
+        <div id="insertion-sort">
+            <h2><u>Insertion Sort Algorithm</u></h2>
+            <a href="#table-contents">Back</a>
+            <pre>
+// Java program for implementation of Insertion Sort
+class InsertionSort {
+    /*Function to sort array using insertion sort*/
+    void sort(int arr[])
+    {
+        int n = arr.length;
+        for (int i = 1; i < n; ++i) {
+            int key = arr[i];
+            int j = i - 1;
+  
+            /* Move elements of arr[0..i-1], that are
+               greater than key, to one position ahead
+               of their current position */
+            while (j >= 0 && arr[j] > key) {
+                arr[j + 1] = arr[j];
+                j = j - 1;
+            }
+            arr[j + 1] = key;
+        }
+    }
+  
+    /* A utility function to print array of size n*/
+    static void printArray(int arr[])
+    {
+        int n = arr.length;
+        for (int i = 0; i < n; ++i)
+            System.out.print(arr[i] + " ");
+  
+        System.out.println();
+    }
+  
+    // Driver method
+    public static void main(String args[])
+    {
+        int arr[] = { 12, 11, 13, 5, 6 };
+  
+        InsertionSort ob = new InsertionSort();
+        ob.sort(arr);
+  
+        printArray(arr);
+    }
+}
+            </pre>
+        </div>
+
+
+        <div id="merge-sort">
+            <h2><u>Merge Sort Algorithm</u></h2>
+            <a href="#table-contents">Back</a>
+            <pre>
+/* Java program for Merge Sort */
+class MergeSort {
+    // Merges two subarrays of arr[].
+    // First subarray is arr[l..m]
+    // Second subarray is arr[m+1..r]
+    void merge(int arr[], int l, int m, int r)
+    {
+        // Find sizes of two subarrays to be merged
+        int n1 = m - l + 1;
+        int n2 = r - m;
+    
+        /* Create temp arrays */
+        int L[] = new int[n1];
+        int R[] = new int[n2];
+    
+        /*Copy data to temp arrays*/
+        for (int i = 0; i &lt; n1; ++i)
+            L[i] = arr[l + i];
+        for (int j = 0; j &lt; n2; ++j)
+            R[j] = arr[m + 1 + j];
+    
+        /* Merge the temp arrays */
+    
+        // Initial indexes of first and second subarrays
+        int i = 0, j = 0;
+    
+        // Initial index of merged subarray array
+        int k = l;
+        while (i &lt; n1 &amp;&amp; j &lt; n2) {
+            if (L[i] &lt;= R[j]) {
+                arr[k] = L[i];
+                i++;
+            }
+            else {
+                arr[k] = R[j];
+                j++;
+            }
+            k++;
+        }
+    
+        /* Copy remaining elements of L[] if any */
+        while (i &lt; n1) {
+            arr[k] = L[i];
+            i++;
+            k++;
+        }
+    
+        /* Copy remaining elements of R[] if any */
+        while (j &lt; n2) {
+            arr[k] = R[j];
+            j++;
+            k++;
+        }
+    }
+    
+    // Main function that sorts arr[l..r] using
+    // merge()
+    void sort(int arr[], int l, int r)
+    {
+        if (l &lt; r) {
+            // Find the middle point
+            int m = l + (r - l) / 2;
+    
+            // Sort first and second halves
+            sort(arr, l, m);
+            sort(arr, m + 1, r);
+    
+            // Merge the sorted halves
+            merge(arr, l, m, r);
+        }
+    }
+    
+    /* A utility function to print array of size n */
+    static void printArray(int arr[])
+    {
+        int n = arr.length;
+        for (int i = 0; i &lt; n; ++i)
+            System.out.print(arr[i] + " ");
+        System.out.println();
+    }
+    
+    // Driver code
+    public static void main(String args[])
+    {
+        int arr[] = { 12, 11, 13, 5, 6, 7 };
+    
+        System.out.println("Given Array");
+        printArray(arr);
+    
+        MergeSort ob = new MergeSort();
+        ob.sort(arr, 0, arr.length - 1);
+    
+        System.out.println("\nSorted array");
+        printArray(arr);
+    }
+}
+            </pre>
+        </div>
+
+        <div id="quick-sort">
+            <h2><u>Quick Sort Algorithm</u></h2>
+            <a href="#table-contents">Back</a>
+            <pre>
+// Java implementation of QuickSort
+import java.io.*;
+    
+class GFG {
+    
+    // A utility function to swap two elements
+    static void swap(int[] arr, int i, int j)
+    {
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
+    
+    /* This function takes last element as pivot, places
+        the pivot element at its correct position in sorted
+        array, and places all smaller (smaller than pivot)
+        to left of pivot and all greater elements to right
+        of pivot */
+    static int partition(int[] arr, int low, int high)
+    {
+    
+        // pivot
+        int pivot = arr[high];
+    
+        // Index of smaller element and
+        // indicates the right position
+        // of pivot found so far
+        int i = (low - 1);
+    
+        for (int j = low; j &lt;= high - 1; j++) {
+    
+            // If current element is smaller
+            // than the pivot
+            if (arr[j] &lt; pivot) {
+    
+                // Increment index of
+                // smaller element
+                i++;
+                swap(arr, i, j);
+            }
+        }
+        swap(arr, i + 1, high);
+        return (i + 1);
+    }
+    
+    /* The main function that implements QuickSort
+                arr[] --&gt; Array to be sorted,
+                low --&gt; Starting index,
+                high --&gt; Ending index
+        */
+    static void quickSort(int[] arr, int low, int high)
+    {
+        if (low &lt; high) {
+    
+            // pi is partitioning index, arr[p]
+            // is now at right place
+            int pi = partition(arr, low, high);
+    
+            // Separately sort elements before
+            // partition and after partition
+            quickSort(arr, low, pi - 1);
+            quickSort(arr, pi + 1, high);
+        }
+    }
+    
+    // Function to print an array
+    static void printArray(int[] arr, int size)
+    {
+        for (int i = 0; i &lt; size; i++)
+            System.out.print(arr[i] + " ");
+    
+        System.out.println();
+    }
+    
+    // Driver Code
+    public static void main(String[] args)
+    {
+        int[] arr = { 10, 7, 8, 9, 1, 5 };
+        int n = arr.length;
+    
+        quickSort(arr, 0, n - 1);
+        System.out.println("Sorted array: ");
+        printArray(arr, n);
+    }
+}
+            </pre>
+        </div>
+
+    </body>
+</html>

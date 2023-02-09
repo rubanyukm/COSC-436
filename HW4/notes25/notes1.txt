@@ -1,0 +1,62 @@
+
+database - db5
+
+table - orders(auto id, name, card, address, burger, pizza, soda)
+      - password(pwd)
+
+command line - fill password
+
+home.php - form has three check boxes, three text boxes, submit
+
+         - name and address text boxes are created dynamically
+              - if name cookie is set put name in text box else leave it empty
+              - if address cookie is set put address in text box else leave it empty
+      
+         - three check boxes, card text box, button are fixed
+      
+         - calls customer.php
+
+customer.php - done before <html>
+             - get name and address from GET array
+             - set name and address cookies
+             - use persistant cookies with 30 days
+
+             - done in <html>
+
+             - get name, card, address from GET array
+             - get burger, pizza, soda information from GET array
+             - insert name, card, address, burger, pizza, soda into orders
+
+             - print confirmation message
+             - use information above
+             - print in table format
+
+store.html - form has text box, submit
+           - calls orders.php
+
+orders.php - get user's pwd from GET array 
+           - retrieve pwd from password
+           - check with user's pwd
+           - no match, say invalid pwd
+ 
+           - select all rows from orders
+           - go thru each row
+           - find burger, pizza, soda order information
+           - print id, burger, pizza, soda, name, card, address
+           - print in required format
+
+           - form has text box and submit
+           - calls update.php
+           
+update.php - get id from GET array
+           - delete the order with that id from orders
+
+           - select all rows from orders
+           - go thru each row
+           - find burger, pizza, soda order information
+           - print id, burger, pizza, soda, name, card, address
+           - print in required format
+
+           - form has text box and submit
+           - calls update.php
+

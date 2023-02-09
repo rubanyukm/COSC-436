@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Question 16</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <form id="mainForm" action="q16.js" method="post">
+            <label for="credits">Number of Credits:</label>
+            <input type="text" id="credits" name="credits"><br><br>
+            <label for="undergrduate">Undergrduate:</label>
+            <input type="radio" id="undergrduate" name="studentStatus">
+            <label for="grduate">Graduate:</label>
+            <input type="radio" id="grduate" name="studentStatus"><br><br>
+            <label for="in">In-State:</label>
+            <input type="radio" id="in" name="resStatus">
+            <label for="out">Out-of-State:</label>
+            <input type="radio" id="out" name="resStatus"><br><br>
+            <input type="checkbox" id="dorm" name="dorm" value="Dorm">
+            <label for="dorm">Dorm</label>
+            <input type="checkbox" id="dining" name="dining" value="Dining">
+            <label for="dining">Dining</label>
+            <input type="checkbox" id="parking" name="parking" value="Parking">
+            <label for="parking">Parking</label><br><br>
+            <button id="send" type="button">Submit</button>
+            <p>
+                <label for="result">Result:</label>
+                <span id="result"></span>
+            </p>
+          </form>
+    </body>
+    <script src="q16.js"></script>
+</html>
